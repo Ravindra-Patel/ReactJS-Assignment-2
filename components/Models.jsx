@@ -25,7 +25,7 @@ const Models = ({ model, showmodels }) => {
               </div>
             </div>
           )}
-          {(model !== " " && model !== "None") && loading && (
+          {model !== " " && model !== "None" && loading && (
             <div role="status">
               <svg
                 aria-hidden="true"
