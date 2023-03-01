@@ -6,10 +6,10 @@ import useApi from "../hooks/useApi";
 
 export default function Home({ carsData }) {
   // For using it wihtout pre rendering
-  const { error, loading, data } = useApi(
-    "https://vpic.nhtsa.dot.gov/api/vehicles/getallmakes?format=json",
-    "true"
-  );
+  // const { error, loading, data } = useApi(
+  //   "https://vpic.nhtsa.dot.gov/api/vehicles/getallmakes?format=json",
+  //   "true"
+  // );
 
   let [tempModel, setTempModel] = useState(" ");
   let [model, setModel] = useState("None");
@@ -26,15 +26,15 @@ export default function Home({ carsData }) {
     setModel(tempModel);
   };
 
-  // For using it with pre rendering
-  // const setCarsFunction = useCallback(() => {
-  //   setCars(carsData);
-  // }, [carsData]);
+  //For using it with pre rendering
+  const setCarsFunction = useCallback(() => {
+    setCars(carsData);
+  }, [carsData]);
 
   // For using it wihtout pre rendering
-  const setCarsFunction = useCallback(() => {
-    setCars(data);
-  }, [data]);
+  // const setCarsFunction = useCallback(() => {
+  //   setCars(data);
+  // }, [data]);
 
   useEffect(() => {
     setCarsFunction();
@@ -54,18 +54,18 @@ export default function Home({ carsData }) {
 
 // Using getStaticProps(context) for per rendering
 
-// export async function getStaticProps(context) {
-//   let response = await fetch(
-//     "https://vpic.nhtsa.dot.gov/api/vehicles/getallmakes?format=json"
-//   );
+export async function getStaticProps(context) {
+  let response = await fetch(
+    "https://vpic.nhtsa.dot.gov/api/vehicles/getallmakes?format=json"
+  );
 
-//   console.log(response);
-//   let data = await response.json();
-//   let carsData = await data.Results;
+  console.log(response);
+  let data = await response.json();
+  let carsData = await data.Results;
 
-//   return {
-//     props: {
-//       carsData,
-//     },
-//   };
-// }
+  return {
+    props: {
+      carsData,
+    },
+  };
+}
