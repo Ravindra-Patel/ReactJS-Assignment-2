@@ -26,7 +26,7 @@ const useApi = (url, model) => {
           setError(error);
         });
     }
-  }, [url]);
+  }, [url,model]);
 
   useEffect(() => {
     fetchApi();

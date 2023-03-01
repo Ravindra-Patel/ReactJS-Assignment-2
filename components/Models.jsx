@@ -25,6 +25,15 @@ const Models = ({ model, showmodels }) => {
               </div>
             </div>
           )}
+
+          {model !== " " && model !== "None" && (
+            <div class="flex mainDiv jw-full mx-auto p-6">
+              <div class="mx-auto flex-column w-full">
+                <h1 class="text-3xl font-bold mt-0 mb-2">{model} Models:</h1>
+                <Model cars={data} />
+              </div>
+            </div>
+          )}
           {model !== " " && model !== "None" && loading && (
             <div role="status">
               <svg
@@ -44,14 +53,6 @@ const Models = ({ model, showmodels }) => {
                 />
               </svg>
               <span class="sr-only">Loading...</span>
-            </div>
-          )}
-          {model !== " " && model !== "None" && (
-            <div class="flex mainDiv jw-full mx-auto p-6">
-              <div class="mx-auto flex-column w-full">
-                <h1 class="text-3xl font-bold mt-0 mb-2">{model} Models:</h1>
-                <Model cars={data} />
-              </div>
             </div>
           )}
         </div>

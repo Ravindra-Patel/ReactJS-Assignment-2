@@ -2,8 +2,15 @@ import Dropdown from "../components/Dropdown";
 import { useEffect, useState } from "react";
 import { useCallback } from "react";
 import Models from "../components/Models";
+import useApi from "../hooks/useApi";
 
 export default function Home({ carsData }) {
+  // For using it wihtout pre rendering
+  const { error, loading, data } = useApi(
+    "https://vpic.nhtsa.dot.gov/api/vehicles/getallmakes?format=json",
+    "true"
+  );
+
   let [tempModel, setTempModel] = useState(" ");
   let [model, setModel] = useState("None");
   let [cars, setCars] = useState([]);
@@ -19,9 +26,15 @@ export default function Home({ carsData }) {
     setModel(tempModel);
   };
 
+  // For using it with pre rendering
+  // const setCarsFunction = useCallback(() => {
+  //   setCars(carsData);
+  // }, [carsData]);
+
+  // For using it wihtout pre rendering
   const setCarsFunction = useCallback(() => {
-    setCars(carsData);
-  }, [carsData]);
+    setCars(data);
+  }, [data]);
 
   useEffect(() => {
     setCarsFunction();
@@ -39,18 +52,20 @@ export default function Home({ carsData }) {
   );
 }
 
-export async function getStaticProps(context) {
-  let response = await fetch(
-    "https://vpic.nhtsa.dot.gov/api/vehicles/getallmakes?format=json"
-  );
+// Using getStaticProps(context) for per rendering
 
-  console.log(response);
-  let data = await response.json();
-  let carsData = await data.Results;
+// export async function getStaticProps(context) {
+//   let response = await fetch(
+//     "https://vpic.nhtsa.dot.gov/api/vehicles/getallmakes?format=json"
+//   );
 
-  return {
-    props: {
-      carsData,
-    },
-  };
-}
+//   console.log(response);
+//   let data = await response.json();
+//   let carsData = await data.Results;
+
+//   return {
+//     props: {
+//       carsData,
+//     },
+//   };
+// }
