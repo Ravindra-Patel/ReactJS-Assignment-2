@@ -21,7 +21,6 @@ const Model = ({ cars }) => {
           </p>
           <p class="font-normal w-[40%] md:m-5 text-gray-700 dark:text-gray-400">
             <b>Model:</b> {car.Model_Name}
-            
           </p>
         </div>
       ))}
