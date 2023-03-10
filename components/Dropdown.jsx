@@ -1,6 +1,6 @@
 const Dropdown = ({ handleModelSelection, cars, fetchModels }) => {
   return (
-    <div class="flex jw-full mx-auto bg-veryLightGray p-6">
+    <div class="flex jw-full mx-auto bg-veryLightGray p-6 min-w-[320px]">
       <div class="mx-auto flex-column w-full">
         <h1 class="text-2xl font-bold mt-0  mb-2">Makes</h1>
         <div class="flex-column w-full md:flex">
