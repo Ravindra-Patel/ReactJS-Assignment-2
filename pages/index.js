@@ -41,7 +41,7 @@ export default function Home({ carsData }) {
   }, [setCarsFunction]);
 
   return (
-    <div className="min-h-[81vh] md:min-h-[78vh]">
+    <div className="min-h-[81vh] md:min-h-[78vh] lg:min-h-[85vh]">
       <Dropdown
         handleModelSelection={handleModelSelection}
         fetchModels={fetcModels}

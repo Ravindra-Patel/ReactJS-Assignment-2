@@ -11,15 +11,15 @@ const Model = ({ cars }) => {
       {cars?.map((car) => (
         <div
           key={car.Model_Name}
-          class="flex min-w-[300px] my-4 max-w-2xl p-1 md:p-3 bg-white border-2 border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700"
+          class="flex min-w-[300px] my-4 max-w-2xl p-3 bg-white border-2 border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700"
         >
-          <p class="font-normal w-[20%] md:m-5 text-gray-700 dark:text-gray-400">
+          <p class="font-normal w-[15%]  md:w-[20%] md:m-5 text-gray-700 dark:text-gray-400">
             <b>ID:</b> {car.Make_ID}
           </p>
-          <p class="font-normal w-[40%] md:m-5 text-gray-700 dark:text-gray-400">
+          <p class="font-normal w-[45%] md:w-[40%] pl-2 md:m-5 text-gray-700 dark:text-gray-400">
             <b>Make:</b> {car.Make_Name}
           </p>
-          <p class="font-normal w-[40%] md:m-5 text-gray-700 dark:text-gray-400">
+          <p class="font-normal w-[45%] md:w-[40%] pl-2 md:m-5 text-gray-700 dark:text-gray-400">
             <b>Model:</b> {car.Model_Name}
           </p>
         </div>
